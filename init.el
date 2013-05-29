@@ -2,6 +2,8 @@
 ;;; Zane Whitney's Emacs Settings
 ;;;(using some parts of Jeff Dlouhy's .emacs file: https://github.com/jeffd)
 
+;;;TODO:
+
 (message "started loading settings ...")
 
 (setq custom-basedir (expand-file-name "~/.emacs.d/site-lisp"))
@@ -146,13 +148,16 @@
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t) (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
-;;; Objective-C Settings
+;;; Objective Modes for appropriate filetypes
 (message "applying Xcode settings ...")
 (setq auto-mode-alist
       (append '(("\\.mm\\'" . objc-mode)
                 ("\\.m\\'" . objc-mode)
                 ("\\.j\\'" . objj-mode))
               auto-mode-alist))
+
+;;; Whitespace Mode for Commit messages in Magit
+(add-hook 'magit-log-edit-mode-hook 'whitespace-mode)
 
 ;;; Header File Support
 ;;; http://hutley.net/brett/emacs/integrating-emacs-and-xcode/
