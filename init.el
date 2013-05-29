@@ -151,7 +151,10 @@
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
-;;; Objective Modes for appropriate filetypes
+
+;;;MODE HOOKS
+
+;;; Objective modes for appropriate filetypes
 (message "applying Xcode settings ...")
 (setq auto-mode-alist
       (append '(("\\.mm\\'" . objc-mode)
@@ -159,8 +162,11 @@
                 ("\\.j\\'" . objj-mode))
               auto-mode-alist))
 
-;;; Whitespace Mode for Commit messages in Magit
+;;; Whitespace mode for Commit messages in Magit
 (add-hook 'magit-log-edit-mode-hook 'whitespace-mode)
+
+;;; Show Paren mode for Emacs Lisp
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;;; Header File Support
 ;;; http://hutley.net/brett/emacs/integrating-emacs-and-xcode/
