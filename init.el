@@ -120,7 +120,8 @@
 ;;;Auto Complete Mode
 ;; (message "Auto Complete Mode ...")
 ;; (require 'auto-complete-config)
-;; (add-to-list 'ac-dictionary-directories "~/emacs-cfg/.emacs.d/site-lisp/ac-dict")
+;; (add-to-list 'ac-dictionary-directories
+;;             "~/emacs-cfg/.emacs.d/site-lisp/ac-dict")
 ;; (ac-config-default)
 
 ;;;Other Yasnippet invocation
@@ -130,7 +131,8 @@
  ;; (yas/global-mode 1)
 
 ;;;Yasnippet
-;;(if (y-or-n-p "Load YASnippet with AutoComplete functionality (Takes awhile): ")
+;;(if (y-or-n-p
+;;    "Load YASnippet with AutoComplete functionality (Takes awhile): ")
 ;;  (progn (require 'yasnippet "~/.emacs.d/plugins/yasnippet/yasnippet.el")
    ;; (yas/initialize)
    ;; (setq yas/root-directory "~/.emacs.d/plugins/yasnippet/snippets")
@@ -146,7 +148,8 @@
 
 ;;; Flyspell Mode
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
-(autoload 'flyspell-delay-command "flyspell" "Delay on command." t) (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
+(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
+(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
 ;;; Objective Modes for appropriate filetypes
 (message "applying Xcode settings ...")
@@ -166,7 +169,7 @@
   (if (string-equal (substring (buffer-file-name) -2) ".h")
       (progn
         ;; OK, we got a .h file, if a .m file exists we'll assume it's
-                                        ; an objective c file. Otherwise, we'll look for a .cpp file.
+        ;; an objective c file. Otherwise, we'll look for a .cpp file.
         (let ((dot-m-file (concat (substring (buffer-file-name) 0 -1) "m"))
               (dot-cpp-file (concat (substring (buffer-file-name) 0 -1) "cpp")))
           (if (file-exists-p dot-m-file)
@@ -209,13 +212,18 @@
 
        (defun build-with-xcode ()
          (interactive)
-         (defun dir () (shell-command "osascript -e 'tell application \"Xcode\" to get the project directory of project 1'"))
+         (defun dir ()
+           (shell-command
+            "osascript -e 'tell application \"Xcode\" to get the project
+             directory of project 1'"))
          (shell-command (format "cd %s" (dir))))
 
-                                        ;       (define-key osx-key-mode-map (kbd "A-r") 'build-and-go-in-xcode)
+;;(define-key osx-key-mode-map (kbd "A-r") 'build-and-go-in-xcode)
 
        (defun build-and-go-in-xcode ()
 
          (interactive)
-         (shell-command "osascript -e 'tell application \"Xcode\" to build project 1'")
-         (shell-command "osascript -e 'tell application \"Xcode\" to launch project 1'"))))
+         (shell-command "osascript -e 'tell
+                        application \"Xcode\" to build project 1'")
+         (shell-command "osascript -e 'tell
+                        application \"Xcode\" to launch project 1'"))))
