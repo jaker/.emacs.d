@@ -1,19 +1,18 @@
 ;;; -*- Mode: Emacs-Lisp -*-
-;;; Zane Whitney's Emacs Settings
-;;;(using some parts of Jeff Dlouhy's .emacs file: https://github.com/jeffd)
+;;; Jake's Emacs Settings
+;;;(using some parts of Zane Whitney and Jeff Dlouhy's .emacs file: https://github.com/jeffd)
 
 ;;;TODO:
 
 (message "started loading settings ...")
 
-(setq custom-basedir (expand-file-name "~/.emacs.d/site-lisp"))
-(add-to-list 'load-path custom-basedir)
+;;;(setq custom-basedir (expand-file-name "~/.emacs.d/site-lisp"))
+;;;(add-to-list 'load-path custom-basedir)
 
-(defun add-path (p)
-  (add-to-list 'load-path (concat custom-basedir p)))
+;;;(defun add-path (p)
+;;;  (add-to-list 'load-path (concat custom-basedir p)))
 
-(add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'exec-path "/Applications/Adobe Flash Builder 4/sdks/4.0.0/bin")
+;;;(add-to-list 'exec-path "/usr/local/bin")
 
 ;;; LAYOUT
 
@@ -88,11 +87,6 @@
 (global-set-key (kbd "C-c C-x") 'nxml-mode)
 (global-set-key (kbd "C-c C-y") 'yas/minor-mode)
 (global-set-key (kbd "C-c c") 'auto-complete-mode)
-
-;;; German Language Settings
-(message "German langauge settings ...")
-(set-language-environment 'german)
-(set-terminal-coding-system 'iso-latin-1)
 
 ;; to switch to the previous frame
 (defun prev-frame ()
